@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dTo-Gz-vbr">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,15 +13,15 @@
             <objects>
                 <tableViewController id="5RS-d3-5Be" customClass="TrackListViewController" customModule="TrackList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="2po-Cs-xx6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackID" textLabel="8Pr-wj-Isk" detailTextLabel="Lez-c8-9Bm" style="IBUITableViewCellStyleSubtitle" id="8xr-q4-mAs">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="50" width="430" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8xr-q4-mAs" id="Pcr-Ae-5I2">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Pr-wj-Isk">
@@ -39,6 +40,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="V0e-gM-XbC" kind="show" id="yDl-0s-MbL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -52,12 +56,56 @@
             </objects>
             <point key="canvasLocation" x="811" y="-106"/>
         </scene>
+        <!--Track Details View Controller-->
+        <scene sceneID="N58-Zb-tGL">
+            <objects>
+                <viewController id="V0e-gM-XbC" customClass="TrackDetailsViewController" customModule="TrackList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4BH-rX-XPr" customClass="Track">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="K0o-LH-MOt">
+                                <rect key="frame" x="20" y="175" width="390" height="375"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rz2-ah-tH0">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="334.66666666666669"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-DY-taP">
+                                        <rect key="frame" x="0.0" y="354.66666666666663" width="390" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="Bmm-eE-Xmg"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Kw-za-gEj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Kw-za-gEj" firstAttribute="trailing" secondItem="K0o-LH-MOt" secondAttribute="trailing" constant="20" id="BCw-oV-3eN"/>
+                            <constraint firstItem="K0o-LH-MOt" firstAttribute="leading" secondItem="4BH-rX-XPr" secondAttribute="leading" constant="20" id="QsK-y4-XkD"/>
+                            <constraint firstItem="K0o-LH-MOt" firstAttribute="top" secondItem="5Kw-za-gEj" secondAttribute="top" constant="20" id="URV-Fh-kIU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9we-5r-aqM"/>
+                    <connections>
+                        <outlet property="coverImageView" destination="Rz2-ah-tH0" id="RiG-xD-rk8"/>
+                        <outlet property="trackNameLabel" destination="wEw-DY-taP" id="3EM-Ta-0Th"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2u8-Kh-16b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1581" y="-106"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="mZI-aS-jER">
             <objects>
                 <navigationController id="dTo-Gz-vbr" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FyE-gV-NkZ">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="59" width="430" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
