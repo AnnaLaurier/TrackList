@@ -14,6 +14,7 @@ class TrackListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 80
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     // MARK: - Table view data source
@@ -34,6 +35,18 @@ class TrackListViewController: UITableViewController {
 
         cell.contentConfiguration = content
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .none
+    }
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        false
+    }
+
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let currentTrack = trackList.remove(at: sourceIndexPath.row)
+        trackList.insert(currentTrack, at: destinationIndexPath.row)
     }
 
     // MARK: - Navigation
